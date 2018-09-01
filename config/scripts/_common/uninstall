@@ -1,0 +1,1 @@
+rm -rf /home/{local_user_name}/{platform.alias}_{service.id}

@@ -1,0 +1,16 @@
+[Unit]
+Description=GameCPx worker process
+After=network.target
+
+[Service]
+Environment="RUNNABLE_NAME={runnable}"
+Environment="MODE={mode}"
+Environment="WORKER_IP={my_ip}"
+Environment="QUEUE_IP={host}"
+Environment="EXCHANGE={exchange}"
+WorkingDirectory=/home/tech/worker/
+ExecStart=/usr/bin/env python start.py ${RUNNABLE_NAME} --mode=${MODE} --exchange=${EXCHANGE} --queue=gs.${WORKER_IP}.tasks.pending --route=gs.${WORKER_IP}.tasks.pending --type=topic --host=${QUEUE_IP}
+Restart=on-failure
+
+[Install]
+WantedBy=runlevel3.target

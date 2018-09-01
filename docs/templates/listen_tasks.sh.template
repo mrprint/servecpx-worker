@@ -1,0 +1,9 @@
+etting up a variables
+E="/usr/bin/env";
+WDIR="/home/tech/worker/"
+THIS_HOST_IP="192.168.1.117"
+QUEUE_HOST_IP="192.168.1.131"
+
+cd ${WDIR}
+$E python ${WDIR}worker.py --exchange=gamecp --queue=gs.${THIS_HOST_IP}.tasks.pending --route=gs.${THIS_HOST_IP}.tasks.pending --type=topic --host=${QUEUE_HOST_IP}
+

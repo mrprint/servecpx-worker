@@ -1,0 +1,3 @@
+mkdir -p /home/{local_user_name}/{platform.alias}_{service.id}
+tar xzvf {platform.install_file} -C /home/{local_user_name}/{platform.alias}_{service.id}/ --strip=1
+chown -R {local_user_name}:{local_user_name} /home/{local_user_name}/{platform.alias}_{service.id}

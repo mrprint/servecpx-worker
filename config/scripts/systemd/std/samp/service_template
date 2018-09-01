@@ -1,0 +1,13 @@
+[Unit]
+Description=SAMP service for user {local_user_name}({account.email})
+After=network.target
+
+[Service]
+User={local_user_name}
+Group={local_user_name}
+WorkingDirectory=/home/{local_user_name}/{platform.alias}_{service.id}/
+ExecStart=/home/{local_user_name}/{platform.alias}_{service.id}/{platform.executable_name} {service.custom_args}
+Restart=on-failure
+
+[Install]
+WantedBy=runlevel3.target

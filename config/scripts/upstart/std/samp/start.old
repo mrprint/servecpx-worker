@@ -1,0 +1,1 @@
+sudo -u {local_user_name} -H sh -c 'tmux new-session -d -n {platforms.alias}_{gameservers.id} -s {platforms.alias}_{gameservers.id} ./{gameservers.executable_name}'

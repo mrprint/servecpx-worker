@@ -1,0 +1,2 @@
+sudo -u {local_user_name} -H mkdir -p /home/{local_user_name}/{platform.alias}_{service.id}
+sudo -u {local_user_name} -H tar xzvf {platform.install_file} -C /home/{local_user_name}/{platform.alias}_{service.id}/ --strip=1

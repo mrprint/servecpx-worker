@@ -1,0 +1,1 @@
+sudo -u {local_user_name} -H sh -c 'tmux new-session -d -n {platform.alias}_{service.id} -s {platform.alias}_{service.id} ./{platform.executable_name}'

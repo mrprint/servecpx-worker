@@ -1,0 +1,2 @@
+mkdir -p /home/{local_user_name}/{platform.alias}_{service.id}
+cp {platform.install_file} /home/{local_user_name}/{platform.alias}_{service.id}/

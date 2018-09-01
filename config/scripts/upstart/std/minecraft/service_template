@@ -1,0 +1,19 @@
+# rc - System V runlevel compatibility
+#
+# This task runs the old System V-style rc script when changing between
+# runlevels.
+
+description     "GameCP service instance for user {local_user_name}({account.email})"
+author          "xternalx aka nolka <xternalx@gmail.com>"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+setuid {local_user_name}
+setgid {local_user_name}
+
+respawn
+script
+    chdir /home/{local_user_name}/{platform.alias}_{service.id}/
+    exec java  -Xmx1024M -Xms1024M -jar /home/{local_user_name}/{platform.alias}_{service.id}/{platform.executable_name} {service.custom_args}
+end script

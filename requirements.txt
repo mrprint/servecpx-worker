@@ -1,0 +1,3 @@
+jsonpickle==0.9.0
+simplejson==3.5.3
+pika==0.10.0

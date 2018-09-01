@@ -1,0 +1,1 @@
+sudo -u {local_user_name} -H /bin/sh -c 'tmux list-panes -t {platform.alias}_{gameserver.id} -F "#{pane_pid}" | xargs ps -o pid= --ppid'

@@ -1,0 +1,39 @@
+# -*- coding: utf8
+
+import logging
+import os
+
+# systemd for redhat-powered OS like CentOS 7
+# upstart for ubuntu-based OS ike Ubuntu Server
+host_os_service_initializer = "systemd"
+
+# os version. Not used.
+host_os_version= "7"
+
+work_dir = os.path.dirname(os.path.abspath(__file__))
+
+log_dir = "/tmp"
+log_level = logging.DEBUG
+
+worker_restart_delay = 3
+
+helper_log_base_indent = 2
+helper_log_format = ""
+helper_log = ""
+
+cmd_create_user = "useradd -s /bin/bash -m  -p %(password)s %(login)s"
+cmd_kill_users_services = "pkill -9 -u %(user)s"
+cmd_delete_user = "userdel -rf %(user)s"
+cmd_copy_file = "sudo -u %(user)s -H cp -f %(from)s %(to)s"
+cmd_create_service_root = "sudo -u %(user)s -H /bin/mkdir -p %(service_root)s"
+
+# login for connecting to messaging server
+que_login = "worker"
+# password for connecting to messaging server
+que_password = "wrkpassword1"
+
+smtp_host = ""
+smtp_login = ""
+smtp_password = ""
+smtp_sender_name = "Служба сообщений GameCPx"
+

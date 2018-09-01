@@ -1,0 +1,19 @@
+# rc - System V runlevel compatibility
+#
+# This task runs the old System V-style rc script when changing between
+# runlevels.
+
+description     "GameCP Worker instance"
+author          "xternalx aka nolka <xternalx@gmail.com>"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+respawn
+script 
+E="/usr/bin/env python";                                                                                                                                                                                                
+WDIR="/home/tech/worker/"                                                                                                                                                                                        
+        cd $WDIR                                                                                                                                                                                                                 
+        $E ${WDIR}worker.py --exchange=gamecp --queue=gs.192.168.1.116.tasks.pending --route=gs.192.168.1.116.tasks.pending --type=topic --host=192.168.1.131 
+end script
+
